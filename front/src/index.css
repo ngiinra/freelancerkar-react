@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+    --font-vazir: "Vazir", "sans-serif";
+}
+
+@layer components{
+    .textbox {
+        @apply border-1 rounded-lg border-stone-200 dark:border-slate-600 outline-none focus:border-slate-500 focus:bg-slate-200 dark:focus:bg-slate-800 transition-all duration-300 disabled:border-0 disabled:appearance-none;
+    }
+    .btn {
+        @apply text-sm rounded-md shadow-2xl shadow-sky-600 w-full bg-sky-600 text-white py-2 hover:bg-sky-700 hover:transition-all hover:duration-200 ;
+    }
+    .badge {
+      @apply text-sm mx-0.5 my-0.5 rounded-lg py-1 px-2 inline-block border-1 border-stone-300 outline-0 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-950;
+    }
+    .tooltip {
+      @apply  border-1 border-stone-300 p-3 rounded-2xl absolute left-1/2 -translate-x-1/2 z-60 min-w-35 shadow-md bg-slate-700 text-slate-300 dark:border-slate-600 text-sm;
+    }
+    .project-label {
+      @apply font-bold w-40 max-w-full block text-sky-700 dark:text-slate-300;
+    }
+    .project-item-div {
+      @apply flex flex-col sm:flex-row px-2 py-2 my-2 md:items-center w-full;
+    }
+    .project-input {
+      @apply inline-block w-full text-stone-700 dark:text-slate-400 appearance-none px-3 py-2;
+    }
+    .errored-field {
+      @apply bg-rose-200 transition-all duration-500;
+    }
+    .base-color-100{
+      @apply bg-stone-100 dark:bg-slate-800;
+    }
+    .base-color{
+      @apply bg-white dark:bg-slate-900 dark:text-slate-200;
+    }
+    .base-border{
+      @apply dark:border-slate-600 border-stone-300;
+    }
+    .show-detail-btn{
+      @apply py-3 px-2 w-3/4 m-3 rounded-lg text-slate-900 bg-pink-500 duration-300 transition-all border-1 border-pink-500 shadow-2xl shadow-pink-500;
+    }
+    .sidebar-item{
+      @apply hover:bg-blue-100 dark:hover:bg-slate-700 rounded-xl p-2 cursor-pointer transition-all duration-300 font-light;
+    }
+    .user-card{
+      @apply rounded-2xl hover:scale-95 hover:duration-200 duration-700 transition-all flex flex-col lg:flex-row gap-x-3 border-1 hover:shadow-2xl opacity-100 starting:opacity-0;
+    }
+    .user-card-info{
+      @apply rounded-2xl rounded-b-none lg:rounded-tl-none lg:rounded-bl-none lg:rounded-b-2xl space-y-3 pl-2 w-full lg:w-1/2 p-5 bg-slate-700 text-slate-200 dark:bg-slate-500 dark:text-slate-800;
+    }
+    body * {
+      @apply transition-colors duration-100;
+  }
+  .navlink-style{
+    @apply text-stone-600 dark:text-slate-300 [text-shadow:_0_1px_1px_var(--color-stone-500)];
+  }
+  .active-navlink-style{
+    @apply text-blue-500 [text-shadow:_0_1px_1px_var(--color-blue-500)]
+  }
+  .MuiTreeItem-label{
+    @apply font-vazir;
+  }
+  .home-card{
+    @apply text-lg border-sky-500 rounded-lg p-3 md:size-60 size-50 flex flex-col items-center justify-center border-2 shadow-lg shadow-sky-500 [text-shadow:_0_1px_1px_var(--color-sky-500)];
+  }
+}
+
+
+html,
+body{
+  padding: 0;
+  margin: 0;
+  font-family: "Vazir";
+  min-height: 100vh;
+  user-select: none;
+  outline: none;
+  direction: rtl;
+  font-size: 14px;
+  position: relative;
+  overflow-x:hidden;
+}
+  
+button {
+  cursor: pointer;
+  outline: none;
+}
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table td,
+table th {
+  white-space: nowrap;
+}
+
+table td {
+  border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+*.dark td{
+  border-bottom : 1px solid #62748E;
+}
+
+table th {
+  text-align:right;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem 1rem;
+}
+
+.custom-status-buttons-div button:first-child{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.custom-status-buttons-div button:last-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+.card {
+  display: block;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #2e496c;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(60);
+  }
+}
+
+*.dark .card::before{
+  all: unset;
+}
+.card:hover {
+  p {
+    transition: all 0.5s ease-out;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  h2 {
+    transition: all 0.3s ease-out;
+    color: #ffffff;
+  }
+}
+
+.my-custom-class .MuiTreeItem-label {
+  font-family: 'Vazir' !important;
+  font-size: 20px;
+}
+.my-custom-class .MuiTreeItem-root .MuiTreeItem-root .MuiTreeItem-label{
+  padding-right: 1rem;
+}
