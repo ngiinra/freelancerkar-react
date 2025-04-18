@@ -8,6 +8,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["mui"],
   },
+  test: { globals: true, environment: "jsdom" },
   server: {
     port: 3000,
   },

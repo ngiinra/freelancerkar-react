@@ -17,7 +17,7 @@ function SendOTPForm({ register, formState, isPending, onSubmit }) {
           readOnly={false}
         />
         <button className="btn" disabled={isPending}>
-          {isPending ? <Loader /> : "ارسال کد تایید"}
+          {isPending ? <Loader data-testid="Loader" /> : "ارسال کد تایید"}
         </button>
       </div>
     </form>
